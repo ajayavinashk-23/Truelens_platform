@@ -1,0 +1,31 @@
+fastapi==0.115.0
+uvicorn[standard]==0.31.0
+python-multipart==0.0.12
+pydantic==2.9.2
+python-dotenv==1.0.0
+
+# ML / inference
+torch==2.4.1
+torchvision==0.19.1
+# >=4.49.0 required: the image model (prithivMLmods/deepfake-detector-model-v1)
+# is SigLIP2-based, and Siglip2ForImageClassification was only added in
+# transformers 4.49.0. Older pins (e.g. 4.45.x) will fail to load it.
+transformers==4.51.3
+Pillow==10.4.0
+numpy==1.26.4
+
+# video
+opencv-python-headless==4.10.0.84
+
+# face detection (multi-face, more accurate than Haar cascades; falls back
+# to OpenCV Haar automatically if mediapipe isn't installed/importable)
+mediapipe==0.10.14
+
+# used by utils/image_quality.py (contrast enhancement) and
+# services/gradcam.py (heatmap resizing/colorizing) — already pulled in
+# transitively by opencv, listed explicitly since we call into it directly
+scipy==1.13.1
+
+# audio
+librosa==0.10.2.post1
+soundfile==0.12.1
